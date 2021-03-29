@@ -1,4 +1,4 @@
-/**import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 
@@ -47,9 +47,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-}**/
+}
 
-
+/**
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CscService } from './csc.service';
@@ -105,3 +105,4 @@ export class RegisterComponent implements OnInit {
   }
 
 }
+**/

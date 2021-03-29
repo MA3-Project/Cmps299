@@ -11,7 +11,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const routes: Routes = [
@@ -26,6 +26,7 @@ const routes: Routes = [
       { path: 'my-account', component: MyAccountComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'forgot-password', component: ForgotPasswordComponent },
       { path: 'error', component: ErrorPageComponent },
       { path: 'testimonials', component: ReviewsComponent },
       { path: 'order-success', component: OrderSuccessComponent }

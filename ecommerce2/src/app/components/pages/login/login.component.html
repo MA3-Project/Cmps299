@@ -1,32 +1,58 @@
 <app-breadcrumb [title]="'Login'" [breadcrumb]="'Login'"></app-breadcrumb>
 
 <div class="my-account sec-padding">
-    <div class="container">
-        <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start"  class="p-0">
-            <div class="my-account-wrap p-0" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" >
-                <div class="login-wrapper pr-50" >
-                    <div class="title">
-                        <h3>Login</h3>
-                    </div>
-                    <form fxLayout="row wrap">
-                        <div  fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-                            <mat-form-field class="w-100">
-                                <input matInput placeholder="Username (required)" #name="ngModel" ngModel name="name" required>
-                                <mat-error *ngIf="name.invalid">Please enter a valid message</mat-error>
-                            </mat-form-field>
-                        </div>
-                        <div  fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-                            <mat-form-field class="w-100">
-                                <input matInput placeholder="Password (required)" #email="ngModel" ngModel name="email" required>
-                                <mat-error *ngIf="email.invalid">Please enter a valid message</mat-error>
-                            </mat-form-field>
-                        </div>
-                        <div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-                            <button class="btn-project" mat-raised-button color="primary" type="submit">Log in</button>
-                        </div>
-                    </form>
-                </div>
+  <div class="container">
+    <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start"  class="p-0">
+      <div class="my-account-wrap p-0" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" >
+        <div class="login-wrapper pr-50" >
+          <div class="title">
+              <h3>Login</h3>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <p class="text-muted m-0">Don't have an account?</p>
+            <button class="fw-600" mat-button color="primary" [routerLink]="'/pages/register'">Sign Up</button>
+          </div>
+          <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="onSubmit()" fxLayout="column">
+            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+              <mat-form-field class="w-100">
+                <mat-label>Username (required)</mat-label>
+                <input matInput formControlName="username" type="username" name="username" placeholder="" />
+              </mat-form-field>
             </div>
-        </mat-card>
-    </div>
+
+            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+              <mat-form-field class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" type="email" name="email" placeholder="" />
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+              <mat-form-field class="w-100">
+                <mat-label>Password (required)</mat-label>
+                <input matInput formControlName="password" type="password" name="password" placeholder="********" >
+              </mat-form-field>
+            </div>
+
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxFlex.gt-sm="30" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+              <mat-checkbox formControlName="agreed">Remember me</mat-checkbox>
+              <a [routerLink]="'/pages/forgot-password'" class="mat-primary text-right full-width">Forgot password?</a>
+            </div>
+
+            <!--<div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+              <button class="btn-project" mat-raised-button color="primary" type="submit">Log in</button>
+            </div>-->
+            <div class="button-wrap" fxLayout="column" fxLayoutGap="16px" fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+              <button class="btn-project" mat-raised-button color="primary" type="submit">Log in</button>
+              <button mat-flat-button color="primary" type="button">Signin with Auth0</button>
+              <button mat-flat-button color="primary" type="button">Firebase Signin</button>
+              <button mat-button style="padding: 1rem;">
+                <mat-icon style="width: 50px; height:30px" svgIcon="logo"></mat-icon> Login With Google
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </div>

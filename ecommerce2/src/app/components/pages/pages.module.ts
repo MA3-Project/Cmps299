@@ -18,7 +18,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -29,7 +31,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     SharedModule,
     NgxSkeletonLoaderModule,
     MatDatepickerModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCheckboxModule,
+    MatProgressBarModule
   ],
   declarations: [
     CartComponent,
@@ -42,7 +46,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     AboutUsComponent,
     ErrorPageComponent,
     ReviewsComponent,
-    OrderSuccessComponent
+    OrderSuccessComponent,
+    ForgotPasswordComponent
 
   ]
 })
