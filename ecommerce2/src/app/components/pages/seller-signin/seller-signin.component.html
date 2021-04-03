@@ -1,0 +1,44 @@
+<div class="my-account sec-padding">
+    <div class="container">
+      <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" class="p-0" style="width:450px; margin-left:380px; background-color:whitesmoke;">
+        <div class="my-account-wrap p-0" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start">
+          <div class="register-wrapper pr-50">
+            <div class="title">
+              <h3>Seller Signin</h3>
+            </div>
+            <form fxLayout="row wrap" [formGroup]="signinFormSeller" (ngSubmit)="onSubmit()">
+  
+              <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Username</mat-label>
+                  <input matInput formControlName="UserName" required>
+                </mat-form-field>
+              </div>
+  
+              <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                <mat-form-field class="w-100" appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-hint *ngIf="error" style="color:red;">Username or password is incorrect!</mat-hint>
+                </mat-form-field>
+              </div>
+  
+              <div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                <p style="display:inline;">Do not have an account? <a fxShow="false" fxShow.gt-xs [routerLink]="['/pages/seller-registration']" routerLinkActive="active">Sign up</a></p>
+                <p style="display:inline; margin-left:55px; font-size:12px;"><a [routerLink]="'/pages/forgot-password'" class="mat-primary text-right full-width">Forgot password?</a></p>
+              </div>
+  
+  
+              <div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                <button class="btn-project" mat-raised-button color="primary" type="submit" [disabled]="!signinFormSeller.valid" style="margin-left:280px;margin-top:20px;">Signin</button>
+              </div>
+  
+            </form>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>  
