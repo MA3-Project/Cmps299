@@ -1,14 +1,14 @@
 <div class="error sec-padding">
-  <div class="container">
-     <div class="page404">
-        Oops! Error 404
-     </div>
-     <div class="not-found">
-        Page Not Found
-     </div>
-     <div class="error_description">
-       <p>We can't seem to find the page you're looking for.</p>
-     </div>
-     <button mat-raised-button color="primary">BACK TO HOME</button>
-  </div>
+   <div class="container">
+      <div class="page404">
+         Oops! Error 404
+      </div>
+      <div class="not-found">
+         Page Not Found
+      </div>
+      <div class="error_description">
+         <p>We can't seem to find the page you're looking for.</p>
+      </div>
+      <a [routerLink]="['/home']" routerLinkActive="router-link-active" mat-raised-button color="primary" class="btn-project mt-20">BACK TO HOME</a>
+   </div>
 </div>

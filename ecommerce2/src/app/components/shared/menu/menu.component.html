@@ -5,7 +5,6 @@
         <mat-menu #products="matMenu" [overlapTrigger]="false" class="app-dropdown">
             <a mat-menu-item [routerLink]="['/home/products/all/left-sidebar']" routerLinkActive="router-link-active" >Products Left Sidebar</a>
             <a mat-menu-item [routerLink]="['/home/products/all/right-sidebar']" routerLinkActive="router-link-active">Products Right Sidebar</a>
-            <a mat-menu-item [routerLink]="['/home/products/all/no-sidebar']" routerLinkActive="router-link-active">Products No Sidebar</a>
         </mat-menu>
         <a  mat-button [matMenuTriggerFor]="shop" class="mat-button" (click)="openMegaMenu()">Features<mat-icon class="caret">arrow_drop_down</mat-icon></a>
         <mat-menu #shop="matMenu" [overlapTrigger]="false" class="app-dropdown mega-menu">

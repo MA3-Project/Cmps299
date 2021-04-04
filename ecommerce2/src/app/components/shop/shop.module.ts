@@ -25,7 +25,6 @@ import { CategoriesComponent } from './widgets/categories/categories.component';
 import { PopularProductsComponent } from './widgets/popular-products/popular-products.component';
 import { ProductZoomComponent } from './products/product-details/product-zoom/product-zoom.component';
 import { ProductZoomFoodComponent } from './products/product-details-food/product-zoom-food/product-zoom-food.component';
-import { ProductNoSidebarComponent } from './products/product-no-sidebar/product-no-sidebar.component';
 import { ProductRightSidebarComponent } from './products/product-right-sidebar/product-right-sidebar.component';
 import { ProductTwoComponent } from './products/product-two/product-two.component';
 import { ProductDetailsFoodComponent } from './products/product-details-food/product-details-food.component';
@@ -38,6 +37,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ProductVerticalFoodComponent } from './products/product-vertical-food/product-vertical-food.component';
 import { ProductDetailsLeftComponent } from './products/product-details-left/product-details-left.component';
 import { ProductDetailsCenteredComponent } from './products/product-details-centered/product-details-centered.component';
+import { NgxImgZoomModule } from 'ngx-img-zoom';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,6 @@ import { ProductDetailsCenteredComponent } from './products/product-details-cent
     PopularProductsComponent,
     ProductZoomComponent,
     ProductZoomFoodComponent,
-    ProductNoSidebarComponent,
     ProductRightSidebarComponent,
     ProductTwoComponent,
     ProductDetailsFoodComponent,
@@ -80,7 +79,7 @@ import { ProductDetailsCenteredComponent } from './products/product-details-cent
     NgxPaginationModule,
     NgxSkeletonLoaderModule,
     MatIconModule
-    // NgxImageZoomModule.forRoot() // <-- Add this line
+    //NgxImgZoomModule.forRoot() // <-- Add this line
   ],
   exports: [
     ProductDialogComponent,
