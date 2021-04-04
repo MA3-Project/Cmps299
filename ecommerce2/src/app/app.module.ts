@@ -17,14 +17,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { ShopModule } from './components/shop/shop.module';
 import { SharedModule } from './components/shared/shared.module';
 import { MatNativeDateModule } from '@angular/material/core';
-/**import { CreateAccountComponent } from './components/create-account/create-account.component';**/
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent
-    /**CreateAccountComponent,**/
 
 
   ],
