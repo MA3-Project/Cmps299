@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
     {
       displayName: 'Home',
       iconName: 'recent_actors',
-      route: '/home/two',
+      route: '/home',
     },
     {
       displayName: 'Products',

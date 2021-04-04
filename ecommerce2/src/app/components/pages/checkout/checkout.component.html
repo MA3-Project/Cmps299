@@ -86,7 +86,7 @@
                   {{ item.product.name }} × {{ item.quantity }}
                 <span>
                   {{ item.product.price * item.quantity | currency:productService?.currency:'symbol' }}
-                  </span>
+                </span>
               </li>
             </ul>
             <ul class="quantity" *ngIf='buyProducts.length <= 0'>

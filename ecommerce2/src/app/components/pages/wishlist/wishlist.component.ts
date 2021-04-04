@@ -11,8 +11,8 @@ import { WishlistService } from '../../shared/services/wishlist.service';
 })
 export class WishlistComponent implements OnInit {
 
-  public product        :   Observable<Product[]> = of([]);
-  wishlistItems  :   Product[] = [];
+  public product: Observable<Product[]> = of([]);
+  wishlistItems: Product[] = [];
 
   constructor(private cartService: CartService, private wishlistService: WishlistService) {
     this.product = this.wishlistService.getProducts();
@@ -25,13 +25,13 @@ export class WishlistComponent implements OnInit {
    // Add to basket
  public addToCart(product: Product,  quantity: number = 1) {
   if (quantity > 0)
-   this.cartService.addToCart(product,quantity);
-   this.wishlistService.removeFromWishlist(product);
+    this.cartService.addToCart(product,quantity);
+    this.wishlistService.removeFromWishlist(product);
 }
 
 // Remove from wishlist
 public removeItem(product: Product) {
- this.wishlistService.removeFromWishlist(product);
+  this.wishlistService.removeFromWishlist(product);
 }
 
 }

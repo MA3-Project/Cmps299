@@ -22,14 +22,14 @@ export class SellerSigninComponent implements OnInit {
     });
 
     //if (localStorage.getItem('token') != null)
-    //this.router.navigateByUrl('home/two');
+    //this.router.navigateByUrl('home');
   }
 
   onSubmit() {
     this.service.login(this.signinFormSeller.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
-        this.router.navigate(['home/two']);
+        this.router.navigate(['home']);
       },
       err => {
         if (err.status == 400)

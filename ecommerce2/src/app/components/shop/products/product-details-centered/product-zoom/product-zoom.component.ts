@@ -4,8 +4,6 @@ import { ProductService } from 'src/app/components/shared/services/product.servi
 import { Product } from 'src/app/modals/product.model';
 
 
-
-
 @Component({
   selector: 'app-product-zoom',
   templateUrl: './product-zoom.component.html',
@@ -19,10 +17,10 @@ export class ProductZoomComponent implements OnInit {
   @ViewChild('zoomImage', { static: true }) zoomImage;
 
   constructor( private productsService: ProductService, public dialogRef: MatDialogRef<ProductZoomComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: {product, index}) {
-                this.product = data.product;
-                this.selectedProductImageIndex = data.index;
-               }
+    @Inject(MAT_DIALOG_DATA) public data: {product, index}) {
+      this.product = data.product;
+      this.selectedProductImageIndex = data.index;
+    }
 
   ngOnInit() {
 
@@ -31,6 +29,5 @@ export class ProductZoomComponent implements OnInit {
   public close(): void {
     this.dialogRef.close();
   }
-
 
 }
