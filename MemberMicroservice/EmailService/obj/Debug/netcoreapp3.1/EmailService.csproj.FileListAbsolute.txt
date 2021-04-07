@@ -1,0 +1,27 @@
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.deps.json
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.pdb
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.csprojAssemblyReference.cache
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfo.cs
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\sma122\Desktop\cmps 299\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.deps.json
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.pdb
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.csprojAssemblyReference.cache
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfo.cs
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\cka13\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.deps.json
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\bin\Debug\netcoreapp3.1\EmailService.pdb
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.csprojAssemblyReference.cache
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.dll
+C:\Users\LENOVO\Desktop\MemberMicroservice\MemberMicroservice\EmailService\obj\Debug\netcoreapp3.1\EmailService.pdb
