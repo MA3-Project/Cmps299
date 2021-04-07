@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ForgetPasswordService {
 
-  baseUrl = "https://localhost:44340/";
+  baseUrl = "https://localhost:44347/";
   constructor(private http: HttpClient) { }
 
   forgotPassword(data){

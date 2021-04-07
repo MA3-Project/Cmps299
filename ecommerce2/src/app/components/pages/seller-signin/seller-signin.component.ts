@@ -6,13 +6,14 @@ import { RegisterService } from '../register/register.service';
 @Component({
   selector: 'app-seller-signin',
   templateUrl: './seller-signin.component.html',
-  styleUrls: ['./seller-signin.component.scss']
+  styleUrls: ['./seller-signin.component.sass']
 })
 export class SellerSigninComponent implements OnInit {
 
   hide = true;
   signinFormSeller: FormGroup;
   error: boolean = false;
+  confirmed: boolean;
   constructor(private service: RegisterService, private router: Router) { }
 
   ngOnInit() {
@@ -22,18 +23,22 @@ export class SellerSigninComponent implements OnInit {
     });
 
     //if (localStorage.getItem('token') != null)
-    //this.router.navigateByUrl('home');
+    //this.router.navigateByUrl('home/two');
   }
 
   onSubmit() {
     this.service.login(this.signinFormSeller.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
-        this.router.navigate(['home']);
+        this.router.navigate(['home/two']);
       },
       err => {
         if (err.status == 400)
           this.error = true;
+        else
+          console.log(err);
+        if (err.status == 401)
+          this.confirmed = true;
         else
           console.log(err);
       }

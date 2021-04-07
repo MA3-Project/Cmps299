@@ -14,7 +14,7 @@
 
 
 
-
+ <!--
 <div class="my-account sec-padding">
     <div class="container">
       <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" class="p-0">
@@ -23,7 +23,7 @@
             <div class="title">
               <h3>Profile</h3>
             </div>
-            <!--
+           
             <div class="imageLayer" (click)="uploadImage()">
                 <div class="mb-1 mt-1">
                     <mat-icon class="image-icon">cloud_upload</mat-icon>
@@ -37,7 +37,7 @@
                     <img [src]="pictureLink" (click)="uploadImage()" class="circle z-depth-2 responsive-img activator">
                     <input [hidden]="true" type="file" name="image" #fileselect (change)="onBrowseFiles($event.target, 'logo')"/>
                 </figure>
-            </div>-->
+            </div>
             
             <form fxLayout="row wrap" [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
                 <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
@@ -134,7 +134,8 @@
       </mat-card>
     </div>
 </div>
-
+-->
+<button mat-raised-button (click)="changePassword()" color="primary"> Change Password</button>
 
 
 <!--

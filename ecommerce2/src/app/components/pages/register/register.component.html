@@ -1,125 +1,126 @@
-<div class="my-account sec-padding">
-  <div class="container">
-    <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" class="p-0">
-      <div class="my-account-wrap p-0" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start">
-        <div class="register-wrapper pr-50">
-          <div class="title">
-            <h3>Customer Registration</h3>
+
+    <div class="my-account sec-padding">
+      <div class="container">
+        <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" class="p-0">
+          <div class="my-account-wrap p-0" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start">
+            <div class="register-wrapper pr-50">
+              <div class="title">
+                <h3>Customer Registration</h3>
+              </div>
+              <form fxLayout="row wrap" [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="First_Name" required>
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="Last_Name" required>
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="UserName" required>
+                    <mat-hint *ngIf="exist" style="color: red;">Username already exist! Try Again!</mat-hint>
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email" required>
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="PhoneNumber">
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error>Weak Password! The password instructions are: Minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput [type]="hide1 ? 'password' : 'text'" formControlName="ConfirmPassword" required>
+                    <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                      <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error>Password do not match</mat-error>
+                  </mat-form-field>
+                </div>
+
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="Gender">
+                      <mat-option *ngFor="let gender of genders" [value]="gender.gender_Id">{{gender.genderTypeEN}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Select your date of birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="Date_Of_Birth" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+
+                <div style="width:350px;">
+                  <mat-form-field class="example-small-width" appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <mat-select formControlName="Country" (selectionChange)="onChangeCountry($event.value)">
+                      <mat-option *ngFor="let country of countries" [value]="country.country_Id">{{country.country_NameEN}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div style="width:350px; margin-left:50px;">
+                  <mat-form-field class="example-small-width" appearance="outline">
+                    <mat-label>Region</mat-label>
+                    <mat-select formControlName="Region" (selectionChange)="onChangeRegion($event.value)">
+                      <mat-option *ngFor="let region of regions" [value]="region.region_Id">{{region.region_NameEN}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div style="width:350px; margin-left:50px;">
+                  <mat-form-field class="example-small-width" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <mat-select formControlName="City">
+                      <mat-option *ngFor="let city of cities" [value]="city.city_Id">{{city.city_NameEN}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <p>Already have an account? <a fxShow="false" fxShow.gt-xs [routerLink]="['/pages/login']" routerLinkActive="router-link-active">Sign in</a></p>
+                </div>
+
+                <div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
+                  <button class="btn-project" mat-raised-button color="primary" type="submit" [disabled]="!createAccountForm.valid" style="margin-left:1000px;">Register</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <form fxLayout="row wrap" [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>First Name</mat-label>
-                <input matInput formControlName="First_Name" required>
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Last Name</mat-label>
-                <input matInput formControlName="Last_Name" required>
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Username</mat-label>
-                <input matInput formControlName="UserName" required>
-                <mat-hint *ngIf="exist" style="color: red;">Username already exist! Try Again!</mat-hint>
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="Email" required>
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Phone Number</mat-label>
-                <input matInput formControlName="PhoneNumber">
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-                <mat-error>Weak Password! The password instructions are: Minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character</mat-error>
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Confirm Password</mat-label>
-                <input matInput [type]="hide1 ? 'password' : 'text'" formControlName="ConfirmPassword" required>
-                <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
-                  <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-                <mat-error>Password do not match</mat-error>
-              </mat-form-field>
-            </div>
-
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Gender</mat-label>
-                <mat-select formControlName="Gender">
-                  <mat-option *ngFor="let gender of genders" [value]="gender.gender_Id">{{gender.genderTypeEN}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Select your date of birth</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="Date_Of_Birth" required>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-            </div>
-
-            <div style="width:350px;">
-              <mat-form-field class="example-small-width" appearance="outline">
-                <mat-label>Country</mat-label>
-                <mat-select formControlName="Country" (selectionChange)="onChangeCountry($event.value)">
-                  <mat-option *ngFor="let country of countries" [value]="country.country_Id">{{country.country_NameEN}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <div style="width:350px; margin-left:50px;">
-              <mat-form-field class="example-small-width" appearance="outline">
-                <mat-label>Region</mat-label>
-                <mat-select formControlName="Region" (selectionChange)="onChangeRegion($event.value)">
-                  <mat-option *ngFor="let region of regions" [value]="region.region_Id">{{region.region_NameEN}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-            <div style="width:350px; margin-left:50px;">
-              <mat-form-field class="example-small-width" appearance="outline">
-                <mat-label>City</mat-label>
-                <mat-select formControlName="City">
-                  <mat-option *ngFor="let city of cities" [value]="city.city_Id">{{city.city_NameEN}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-            <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <p>Already have an account? <a fxShow="false" fxShow.gt-xs [routerLink]="['/pages/login']" routerLinkActive="router-link-active">Sign in</a></p>
-            </div>
-
-            <div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
-              <button class="btn-project" mat-raised-button color="primary" type="submit" [disabled]="!createAccountForm.valid" style="margin-left:1000px;">Register</button>
-            </div>
-          </form>
-        </div>
+        </mat-card>
       </div>
-    </mat-card>
-  </div>
-</div>
+    </div>

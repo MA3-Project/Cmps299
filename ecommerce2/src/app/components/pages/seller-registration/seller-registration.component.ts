@@ -9,7 +9,7 @@ import { RegisterService } from '../register/register.service';
 @Component({
   selector: 'app-seller-registration',
   templateUrl: './seller-registration.component.html',
-  styleUrls: ['./seller-registration.component.scss']
+  styleUrls: ['./seller-registration.component.sass']
 })
 export class SellerRegistrationComponent implements OnInit {
 
@@ -21,9 +21,9 @@ export class SellerRegistrationComponent implements OnInit {
   cities: {};
   genders: {};
   usernames: {};
-  success: boolean = false;
   exist: boolean = false;
-  constructor(private cscService: CRCService, private http: HttpClient, private re: RegisterService, private route: Router) { }
+
+  constructor(private cscService: CRCService, private re: RegisterService, private route: Router) { }
 
   ngOnInit(): void {
 
@@ -107,14 +107,24 @@ export class SellerRegistrationComponent implements OnInit {
       "Date_Of_Birth": this.createAccountFormSeller.value.Date_Of_Birth,
       "Country": JSON.parse(this.createAccountFormSeller.value.Country),
       "Region": JSON.parse(this.createAccountFormSeller.value.Region),
-      "City": JSON.parse(this.createAccountFormSeller.value.City)
-  }
-    this.re.registerSeller(data).subscribe(result => { console.log("Success!", result); if (result.succeeded.value == true) { this.success = true } if (result.errors.code == "DuplicateUserName") { this.exist = true; } }, error => { console.error("Error!", error); });
+      "City": JSON.parse(this.createAccountFormSeller.value.City),
+      "ClientURI": "http://localhost:4200/pages/email-confirmation"
+    }
     if (this.isUsernameExist(this.createAccountFormSeller.value.UserName)) {
       this.exist = true;
       this.createAccountFormSeller.value.UserName = "";
       return;
     }
+
+    this.re.registerSeller(data).subscribe(result => {
+      console.log("Success!", result);
+    },
+      err => {
+        if (err.status == 400)
+          this.exist = true;
+        else
+          console.log(err);
+      });
     this.route.navigate(['pages/seller-signin']);
   }
 

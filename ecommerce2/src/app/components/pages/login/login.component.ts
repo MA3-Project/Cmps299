@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   signinForm: FormGroup;
   error: boolean = false;
+  confirmed: boolean;
   constructor(private service: RegisterService, private router: Router) { }
 
   ngOnInit() {
@@ -34,6 +35,11 @@ export class LoginComponent implements OnInit {
       err => {
         if (err.status == 400)
           this.error = true;
+        else
+          console.log(err);
+
+        if (err.status == 401)
+          this.confirmed = true;
         else
           console.log(err);
       }

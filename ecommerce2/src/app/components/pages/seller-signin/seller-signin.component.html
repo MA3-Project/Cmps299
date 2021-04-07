@@ -1,11 +1,16 @@
 <div class="my-account sec-padding">
   <div class="container">
-    <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" class="p-0" style="width:450px; margin-left:380px; background-color:whitesmoke;">
+    <mat-card fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start" class="p-0" style="width:500px; margin-left:380px; background-color:whitesmoke;">
       <div class="my-account-wrap p-0" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start">
         <div class="register-wrapper pr-50">
           <div class="title">
             <h3>Seller Signin</h3>
           </div>
+
+          <div *ngIf="confirmed" class="alert alert-danger" role="alert" style="color:red;">
+            Your email is not confirmed. Please confirm your Email!
+          </div>
+
           <form fxLayout="row wrap" [formGroup]="signinFormSeller" (ngSubmit)="onSubmit()">
 
             <div fxFlex="100" fxFlex.gt-sm="100" class="px-1" ngClass.sm="mt-1" ngClass.xs="mt-1">
@@ -28,8 +33,9 @@
 
             <div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
               <p style="display:inline;">Do not have an account? <a fxShow="false" fxShow.gt-xs [routerLink]="['/pages/seller-registration']" routerLinkActive="active">Sign up</a></p>
-              <p style="display:inline; margin-left:55px; font-size:12px;"><a [routerLink]="'/pages/forgot-password'" class="mat-primary text-right full-width">Forgot password?</a></p>
+              <p style="display:inline; margin-left:55px; font-size:12px;"><a fxShow="false" fxShow.gt-xs [routerLink]="['/pages/forgot-password']" routerLinkActive="active">Forget Password?</a></p>
             </div>
+
 
             <div class="button-wrap" fxFlex="100" fxFlex.gt-sm="100" ngClass.sm="mt-1" ngClass.xs="mt-1">
               <button class="btn-project" mat-raised-button color="primary" type="submit" [disabled]="!signinFormSeller.valid" style="margin-left:280px;margin-top:20px;">Signin</button>
@@ -40,4 +46,5 @@
       </div>
     </mat-card>
   </div>
-</div>  
+</div>
+

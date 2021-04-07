@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class ChangePasswordService {
 
 
-  baseUrl = "https://localhost:44340/";
+  baseUrl = "https://localhost:44347/";
   constructor(private http: HttpClient) { }
 
   changePassword(data){

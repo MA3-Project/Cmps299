@@ -36,7 +36,7 @@ export class ResetPasswordComponent implements OnInit {
       "ConfirmPassword": this.ResetPasswordForm.value.ConfirmPassword,
       "Token": this.token
     }
-
+    localStorage.removeItem('token');
     this.service.reset(data).subscribe(result => { console.log(result); }, error => console.error(error));
   }
 

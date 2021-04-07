@@ -105,8 +105,10 @@ export class RegisterComponent implements OnInit {
       "Date_Of_Birth": this.createAccountForm.value.Date_Of_Birth,
       "Country": JSON.parse(this.createAccountForm.value.Country),
       "Region": JSON.parse(this.createAccountForm.value.Region),
-      "City": JSON.parse(this.createAccountForm.value.City)
+      "City": JSON.parse(this.createAccountForm.value.City),
+      "ClientURI": "http://localhost:4200/pages/email-confirmation"
     }
+
     if (this.isUsernameExist(this.createAccountForm.value.UserName)) {
       this.exist = true;
       this.createAccountForm.value.UserName = "";
