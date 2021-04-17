@@ -1,0 +1,99 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav [opened]="false" mode="over"  #start  class="sidenav">
+    <button mat-icon-button color="warn" class="close" (click)="start.close()">
+      <mat-icon color="warn">close</mat-icon>
+    </button>
+    <div class="divider"></div>
+    <div class="sidebar-items" fxLayout="column" >
+        <app-sidebar *ngFor="let item of navItems" [item]="item"></app-sidebar>
+    </div>
+  </mat-sidenav>
+  <style>
+    a:hover{
+      outline: none;
+      text-decoration:none;
+      color: black;
+    }
+  </style>
+  <!-- topbar start -->
+  <mat-toolbar  *ngIf="url !== '/home/furniture' && url !== '/home/home-decor' && url !== '/home/food'" class="main-topbar "  [ngClass]="{'topbar_four': url == '/home/four' }">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" class="top-bar container" >
+      <span fxHide="false" fxHide.gt-sm   >
+        <button mat-icon-button (click)="start.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+      </span>
+      <div fxLayout="row" class="welcome-message">
+        <div class="widget-text">
+          <a mat-button [matMenuTriggerFor]="currencyMenu" #currencyMenuTrigger="matMenuTrigger">
+            {{currency}}<mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          </a>
+          <mat-menu #currencyMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
+            <span>
+              <button mat-menu-item *ngFor="let cur of currencies" (click)="changeCurrency(cur)">
+                <span>{{cur}}</span>
+              </button>
+            </span>
+          </mat-menu>
+        </div>
+        <div class="widget-text">
+          <a mat-button [matMenuTriggerFor]="langMenu" #langMenuTrigger="matMenuTrigger">
+            <img [src]="flag.image" width="18">
+            <span fxShow="false" fxShow.gt-sm class="flag-menu-title">{{flag.name}}</span>
+            <mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          </a>
+          <mat-menu #langMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
+            <span>
+              <button mat-menu-item *ngFor="let flag of flags" (click)="changeLang(flag)">
+                <img [src]="flag.image" width="18"> {{flag.name}}
+              </button>
+            </span>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="widgets-left" fxLayout="row">
+        <div class="widget-text">
+          <a fxShow="false" fxShow.gt-xs [routerLink]="['/pages/wishlist']" routerLinkActive="router-link-active"><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">favorite_border</mat-icon> WISHLIST</a>
+        </div>
+
+        <div class="widget-text">
+          <a fxShow="false" fxShow.gt-xs [routerLink]="['/pages/basket']" routerLinkActive="router-link-active"><mat-icon class="mat-icon-lg mat-icon material-icons mr-10">shopping_cart</mat-icon> BASKET</a>
+        </div>
+
+        <div class="widget-text">
+          <a mat-button [matMenuTriggerFor]="sellerMenu" #sellerMenuTrigger="matMenuTrigger">
+            <mat-icon class="mat-icon-sm caret cur-icon">sell</mat-icon>Sell on MT2<mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          </a>
+          <mat-menu #sellerMenu="matMenu" [overlapTrigger]="false" class="app-dropdown">
+            <a mat-menu-item fxShow="false" fxShow.gt-xs [routerLink]="['pages/seller-signin']" routerLinkActive="active">Seller Sign in</a>
+            <a mat-menu-item fxShow="false" fxShow.gt-xs [routerLink]="['pages/seller-registration']" routerLinkActive="active">Seller Register</a>
+          </mat-menu>
+        </div>
+
+        <div class="widget-text">
+          <a mat-button [matMenuTriggerFor]="accountMenu" #accountMenuTrigger="matMenuTrigger">
+            <mat-icon class="mat-icon-sm caret cur-icon">person</mat-icon>ACCOUNT<mat-icon class="mat-icon-sm caret cur-icon">arrow_drop_down</mat-icon>
+          </a>
+          <mat-menu #accountMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
+            <!--<p style="width:200px; text-align:center;">WELCOME TO MT2!</p>-->
+            <div *ngIf="!signedin">
+              <button mat-raised-button (click)="signin()" color="primary" style="margin-left:10px;">Sign in</button>
+              <button mat-raised-button (click)="Register()" color="warn" style="margin-left:40px;">Register</button>
+              <mat-divider style="margin-top:10px;"></mat-divider>
+            </div>
+            <a mat-menu-item fxShow="false" fxShow.gt-xs [routerLink]="['pages/my-account']" routerLinkActive="active">My Account</a>
+            <!--<a class="nav-link text-dark" [routerLink]="['/my-orders']" style="margin-top:10px;">My Orders</a>
+                <a class="nav-link text-dark" [routerLink]="['/wish-list']" style="margin-top:10px;">My Wish-List</a>
+                <a class="nav-link text-dark" [routerLink]="['/my-coupons']" style="margin-top:10px;">My Coupons</a>
+                <a class="nav-link text-dark" [routerLink]="['/sign-out']" style="margin-top:10px;">Sign Out</a>-->
+            <button mat-menu-item *ngIf="signedin" (click)="logout()">Log out</button>
+          </mat-menu>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- topbar ends -->
+  <app-header *ngIf=" url == 'home' || router.url.includes('pages') || router.url.includes('product')"></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</mat-sidenav-container>

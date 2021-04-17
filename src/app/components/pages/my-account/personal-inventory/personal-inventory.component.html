@@ -1,0 +1,346 @@
+<!--<style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
+  body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+
+  /* Toggle Styles */
+
+  #viewport {
+    padding-left: 250px;
+    margin-left:100px;
+    margin-top: 30px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  #content {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+  }
+
+  /* Sidebar Styles */
+
+  #sidebar {
+    z-index: 1000;
+    position: fixed;
+    left: 100px;
+    width: 250px;
+/*    margin-left: -250px;
+*/    /*overflow-y: auto;*/
+    background: #37474F;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+    #sidebar header {
+      background-color: #263238;
+      font-size: 20px;
+      line-height: 52px;
+      text-align: center;
+    }
+
+      #sidebar header a {
+        color: #fff;
+        display: block;
+        text-decoration: none;
+      }
+
+        #sidebar header a:hover {
+          color: #fff;
+        }
+
+    #sidebar .nav {
+    }
+
+      #sidebar .nav a {
+        background: none;
+        border-bottom: 1px solid #455A64;
+        color: #CFD8DC;
+        font-size: 14px;
+        padding: 16px 24px;
+      }
+
+        #sidebar .nav a:hover {
+          background: none;
+          color: #ECEFF1;
+        }
+
+        #sidebar .nav a i {
+          margin-right: 16px;
+        }
+</style>
+
+<div id="viewport">-->
+<!-- Sidebar -->
+<!--<div id="sidebar">
+  <header>
+    <a href="#">My App</a>
+  </header>
+  <ul class="nav">
+    <li>
+      <a href="#">
+        <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="zmdi zmdi-link"></i> Shortcuts
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="zmdi zmdi-widgets"></i> Overview
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="zmdi zmdi-calendar"></i> Events
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="zmdi zmdi-info-outline"></i> About
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="zmdi zmdi-settings"></i> Services
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="zmdi zmdi-comment-more"></i> Contact
+      </a>
+    </li>
+  </ul>
+</div>-->
+<!-- Content -->
+<!--<div id="content">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#">
+              <i class="zmdi zmdi-notifications text-danger"></i>
+            </a>
+          </li>
+          <li><a href="#">Test User</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <h1>Simple Sidebar</h1>
+      <p>
+        Make sure to keep all page content within the
+        <code>#content</code>.
+      </p>
+    </div>
+  </div>
+</div>-->
+
+
+
+<style>
+  .sidebar-container {
+    margin-left:10px;
+    margin-top:30px;
+  width: 190px;
+  left: 0;
+  overflow-x: hidden;
+  background-color: whitesmoke;
+}
+
+.content-container {
+  padding-top: 20px;
+}
+
+.sidebar-logo {
+  padding: 10px 15px 10px 30px;
+  font-size: 20px;
+  background-color: #2574A9;
+}
+
+.sidebar-navigation {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  position: relative;
+}
+
+  .sidebar-navigation li {
+    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    line-height: 20px;
+  }
+
+.sidebar-navigation li button {
+  padding-left: 15px;
+  padding-top:4px;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-navigation li .fa {
+  margin-right: 10px;
+}
+
+.sidebar-navigation li button:active,
+.sidebar-navigation li button:hover,
+.sidebar-navigation li button:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.sidebar-navigation li::before {
+  background-color: #2574A9;
+  position: absolute;
+  content: '';
+  height: 100%;
+  left: 0;
+  top: 0;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+  width: 3px;
+  z-index: -1;
+}
+
+.sidebar-navigation li:hover::before {
+  width: 100%;
+}
+
+.sidebar-navigation .header {
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #151515;
+  padding: 10px 15px 10px 30px;
+}
+
+.sidebar-navigation .header::before {
+  background-color: transparent;
+}
+
+.content-container {
+  padding-left: 220px;
+}
+</style>
+
+
+
+
+<div class="sidebar-container">
+  <div class="sidebar-logo">
+    ECOMMERCE
+  </div>
+  <ul class="sidebar-navigation">
+    <!--<li class="header">Navigation</li>-->
+    <li>
+      <button mat-button [routerLink]="['/home/']" routerLinkActive="active">
+        <i class="fa fa-home" aria-hidden="true"></i> Homepage
+      </button>
+    </li>
+    <li>
+      <button mat-button [routerLink]="['/pages/my-account']" routerLinkActive="router-link-active">
+        <i class="fa fa-tachometer" aria-hidden="true"></i> My Account
+      </button>
+    </li>
+    <li>
+
+      <button mat-button [routerLink]="['/pages/my-account']" routerLinkActive="router-link-active">
+        <i class="fa fa-tachometer" aria-hidden="true"></i> Categories
+      </button>
+
+
+
+      <!--<button mat-icon-button [matMenuTriggerFor]="tabledriven">
+        Categories
+      </button>
+
+      <mat-menu #tabledriven="matMenu">
+        <ng-container *ngFor="let item of menuItems">
+          <button *ngIf=!item.templateName mat-menu-item (click)="select(item.text)">{{ item.text }}</button>
+          <button *ngIf=item.elementRef mat-menu-item [matMenuTriggerFor]=item.elementRef>{{ item.text }}</button>
+        </ng-container>
+      </mat-menu>-->
+      <!--<button mat-button [matMenuTriggerFor]="Categories"><i class="fa fa-bookmark" aria-hidden="true"></i>Categories<mat-icon class="mat-icon-sm caret cur-icon">arrow_right</mat-icon></button>
+  <mat-menu #Categories="matMenu">
+    <h4 style="padding-left:10px;">Categories</h4>
+    <button mat-menu-item *ngFor="let cat of categories" [matMenuTriggerFor]={{ cat.category_nameEN }}>{{ cat.category_nameEN }}</button>
+  </mat-menu>-->
+      <!--<mat-menu *ngFor="let c of categories" #{{ cat.category_nameEN }}="matMenu">
+    <h4 style="padding-left:10px;">Subcategories</h4>
+    <button mat-menu-item *ngFor="">Dress</button>
+    <button mat-menu-item>Accessories</button>
+  </mat-menu>
+
+  <mat-menu #Men="matMenu">
+    <h4 style="padding-left:10px;">Subcategories</h4>
+    <button mat-menu-item>T-Shirt</button>
+    <button mat-menu-item>Jeans</button>
+
+  </mat-menu>-->
+      <!--<button mat-button [matMenuTriggerFor]="Categories"><i class="fa fa-bookmark" aria-hidden="true"></i>Categories<mat-icon class="mat-icon-sm caret cur-icon">arrow_right </mat-icon> </button>
+  <mat-menu #Categories="matMenu">
+    <button *ngFor="let cat of categories" mat-menu-item [matMenuTriggerFor]="sub_menu">
+      {{cat.category_nameEN}}
+    </button>
+  </mat-menu>
+
+  <mat-menu #sub_menu="matMenu">
+    <button mat-menu-item>Hello </button>
+  </mat-menu>-->
+      <!--<mat-menu #>
+
+  </mat-menu>-->
+      <!--<mat-menu #Categories="matMenu">
+    <ng-container *ngFor="let cat of categories">
+      <button mat-menu-item [matMenuTriggerFor]="sub-menu" (click)="getid($event.value)" [value]="cat.category_ID">{{ cat.category_nameEN }}</button>
+      <mat-menu #sub-menu="matMenu">
+        <button *ngFor="let subcat of subcategories" mat-menu-item>{{ subcat.subCategory_NameEN }}</button>
+      </mat-menu>
+    </ng-container>
+  </mat-menu>-->
+    </li>
+
+
+    <li>
+      <button mat-button (click)="goToAddItem()">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Item
+      </button>
+    </li>
+    <li>
+      <button mat-button [routerLink]="['personal-inventory/add-item']" routerLinkActive="active">
+        <i class="fa fa-buysellads" aria-hidden="true"></i> Add Advertisement
+      </button>
+    </li>
+
+    <li>
+      <button mat-button (click)="gotoAddItem()">
+        <i class="fa fa-percent" aria-hidden="true"></i>Add Promotions
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div class="content-container">
+
+  <div class="container-fluid">
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+    </div>
+
+  </div>
+</div>
+
+

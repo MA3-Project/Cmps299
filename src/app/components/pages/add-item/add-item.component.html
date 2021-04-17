@@ -1,0 +1,142 @@
+<style>
+  body{
+    padding-left:30px;
+  }
+
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-20px);
+    }
+
+  }
+
+  mat-form-field {
+    width: 400px;
+  }
+</style>
+
+
+
+<mat-horizontal-stepper #stepper>
+  <mat-step label="Add Item">
+    <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
+      <ng-template matStepLabel>Add Item</ng-template>
+
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Item Name</mat-label>
+          <input matInput formControlName="ItemName" required>
+        </mat-form-field>
+      </div>
+      <br />
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Company Name</mat-label>
+          <input matInput formControlName="CompanyName" required>
+        </mat-form-field>
+      </div>
+      <br />
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Item Description</mat-label>
+          <textarea matInput formControlName="ItemDescription" required></textarea>
+        </mat-form-field>
+      </div>
+      <br />
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Shipping Cost</mat-label>
+          <input matInput formControlName="shippingCost" required>
+        </mat-form-field>
+      </div><br />
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Item Image</mat-label>
+          <input matInput formControlName="Main_ImageID" required>
+        </mat-form-field>
+      </div><br />
+
+      <h4>Select the categories you wish to add your item to:</h4>
+      <div style="margin-left:40px; margin-top:20px;">
+        <div *ngFor="let cat of categories">
+          <label>
+            <input type="checkbox" class="custom-input" formArrayName="categories" (change)="onChange(cat, $event.target.checked)" />
+            {{ cat.category_nameEN }}
+          </label>
+        </div>
+      </div>
+      <br />
+      <h4 *ngIf="subcategories.length > 0">Select the Subcategories you wish to add your item to:</h4>
+      <div style="margin-left:30px; margin-top:10px;">
+        <div *ngFor="let sub of subcategories">
+          <div *ngFor="let s of sub" style="display: inline; margin-left:10px;">
+            <label>
+              <input type="checkbox" class="custom-input" formArrayName="subCategories" (change)="change(s, $event.target.checked)" />
+              {{ s?.subCategory_NameEN }}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div><h4>Add Types and values for your Item:</h4></div>
+      <div style="margin-top:10px;">
+      <div *ngFor="let obj of dataarray; let i=index;">
+        <mat-form-field appearance="outline">
+          <mat-label>Item Characteristic Type</mat-label>
+          <input matInput formArrayName="characteristicTypes" name="obj.type{{i}}" placeholder="Ex: Size" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="margin-left:40px;">
+          <mat-label>Item Characteristic Value</mat-label>
+          <input matInput formArrayName="characteristicValues" name="obj.value{{i}}" placeholder="Ex: S/M/L/XL/XXL" required />
+        </mat-form-field>
+
+        <button mat-flat-button *ngIf="i!=0" (click)="remove(i)" style="margin-left:10px;" color="warn">X</button>
+      </div>
+        </div>
+      <div>
+        <span>Please separate the values by a slash (/)</span>
+      </div>
+
+      <button mat-raised-button (click)="add()" color="primary" style="margin-top:10px;">Add Types and Values</button>
+
+      <div>
+        <button mat-button matStepperNext color="primary" type="submit" style="margin-top:10px;">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step label="Add SKUs">
+    <form [formGroup]="addSKUsForm" (ngSubmit)="onSubmitSKU()">
+
+      <!--<div *ngFor="let obj of getTypes">
+        <mat-form-field>
+          <mat-label>{{obj.charType}}</mat-label>
+          <input matInput required>
+        </mat-form-field>
+      </div>-->
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>Your Item have been added successfully!</p>
+  </mat-step>
+</mat-horizontal-stepper>
+
