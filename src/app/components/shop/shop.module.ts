@@ -25,7 +25,6 @@ import { CategoriesComponent } from './widgets/categories/categories.component';
 import { PopularProductsComponent } from './widgets/popular-products/popular-products.component';
 import { ProductZoomComponent } from './products/product-details/product-zoom/product-zoom.component';
 import { ProductZoomFoodComponent } from './products/product-details-food/product-zoom-food/product-zoom-food.component';
-import { ProductRightSidebarComponent } from './products/product-right-sidebar/product-right-sidebar.component';
 import { ProductTwoComponent } from './products/product-two/product-two.component';
 import { ProductDetailsFoodComponent } from './products/product-details-food/product-details-food.component';
 import { CategoriesFurnitureComponent } from './widgets/categories-furniture/categories-furniture.component';
@@ -55,7 +54,6 @@ import { NgxImgZoomModule } from 'ngx-img-zoom';
     PopularProductsComponent,
     ProductZoomComponent,
     ProductZoomFoodComponent,
-    ProductRightSidebarComponent,
     ProductTwoComponent,
     ProductDetailsFoodComponent,
     CategoriesFurnitureComponent,
